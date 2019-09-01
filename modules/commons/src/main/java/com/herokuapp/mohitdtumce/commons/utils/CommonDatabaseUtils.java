@@ -1,6 +1,6 @@
-package com.herokuapp.mohitdtumce.utils;
+package com.herokuapp.mohitdtumce.commons.utils;
 
-import com.herokuapp.mohitdtumce.models.UserCredentials;
+import com.herokuapp.mohitdtumce.commons.models.UserCredentials;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -18,7 +18,7 @@ public class CommonDatabaseUtils {
 
 	public static SessionFactory buildSessionFactory() {
 		Configuration configObj = new Configuration();
-		configObj.addAnnotatedClass(com.herokuapp.mohitdtumce.models.UserCredentials.class);
+		configObj.addAnnotatedClass(com.herokuapp.mohitdtumce.commons.models.UserCredentials.class);
 		configObj.configure("hibernate.cfg.xml");
 
 		ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
@@ -34,6 +34,7 @@ public class CommonDatabaseUtils {
 			String hql = "FROM UserCredentials UC WHERE UC.user = \'" + username + "\'";
 			Query query = sessionObj.createQuery(hql);
 			List<UserCredentials> userCredentials = query.list();
+			sessionFactoryObj.close();
 			if (userCredentials == null || userCredentials.size() == 0) {
 				return null;
 			} else {

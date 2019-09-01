@@ -1,6 +1,6 @@
-package com.herokuapp.mohitdtumce.utils;
+package com.herokuapp.mohitdtumce.commons.utils;
 
-import com.herokuapp.mohitdtumce.models.UserCredentials;
+import com.herokuapp.mohitdtumce.commons.models.UserCredentials;
 
 import java.io.Console;
 

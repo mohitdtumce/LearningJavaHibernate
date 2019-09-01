@@ -1,6 +1,6 @@
-package com.herokuapp.mohitdtumce.models;
+package com.herokuapp.mohitdtumce.commons.models;
 
-import com.herokuapp.mohitdtumce.constants.Constants;
+import com.herokuapp.mohitdtumce.commons.constants.Constants;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,4 +45,3 @@ public class UserCredentials {
 		this.password = password;
 	}
 }
-

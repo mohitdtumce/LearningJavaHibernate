@@ -1,5 +1,7 @@
 package com.herokuapp.mohitdtumce;
 
+import com.herokuapp.mohitdtumce.user.main.User;
+
 import java.util.Scanner;
 
 public class Main {
