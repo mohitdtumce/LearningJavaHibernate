@@ -11,6 +11,7 @@
 	<modules>
 		<module>modules/User</module>
 		<module>modules/CommonUtils</module>
+		<module>modules/Constants</module>
 	</modules>
 
 

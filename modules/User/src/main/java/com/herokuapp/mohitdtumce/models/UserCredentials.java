@@ -1,12 +1,14 @@
 package com.herokuapp.mohitdtumce.models;
 
+import com.herokuapp.mohitdtumce.Constants;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_credentials")
+@Table(name = Constants.USER_CREDENTIALS_TABLE)
 public class UserCredentials {
 
 	@Id
