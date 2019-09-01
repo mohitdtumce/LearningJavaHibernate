@@ -1,36 +1,32 @@
 package com.herokuapp.mohitdtumce;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.internal.SessionFactoryRegistry;
+import org.hibernate.service.ServiceRegistry;
 
 import java.util.logging.Logger;
 
 public class HibernateUtils {
-	private static final SessionFactory sessionFactory;
+	private static SessionFactory sessionFactoryObj = null;
 
-	static {
-		try {
-			Logger logger = Logger.getLogger("Mylogger");
-			logger.info("Trying to create a test connection with database");
-			Configuration configuration = new Configuration().configure();
-			configuration.configure();
-			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration
-					.getProperties());
-			sessionFactory = configuration.buildSessionFactory(builder.build());
-		} catch (Throwable ex) {
-			System.out.println("SessionFactory creation failed with error" + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
+	public static SessionFactory buildSessionFactory() {
+		// Creating Configuration Instance & Passing Hibernate Configuration File
+		Configuration configObj = new Configuration();
+		configObj.addAnnotatedClass(com.herokuapp.mohitdtumce.models.UserCredentials.class);
+		configObj.configure("hibernate.cfg.xml");
 
-	}
+		// Since Hibernate Version 4.x, ServiceRegistry Is Being Used
+		ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
 
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-
+		// Creating Hibernate SessionFactory Instance
+		sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
+		return sessionFactoryObj;
 	}
 
 	public static void shutDown() {
-		sessionFactory.close();
+		sessionFactoryObj.close();
 	}
 }

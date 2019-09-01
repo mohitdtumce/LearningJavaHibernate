@@ -15,29 +15,14 @@ public class App {
 
 	static UserCredentials userCredentialsObj;
 	static Session sessionObj;
-	static SessionFactory sessionFactoryObj;
-
-	private static SessionFactory buildSessionFactory() {
-		// Creating Configuration Instance & Passing Hibernate Configuration File
-		Configuration configObj = new Configuration();
-		configObj.addAnnotatedClass(com.herokuapp.mohitdtumce.models.UserCredentials.class);
-		configObj.configure("hibernate.cfg.xml");
-
-		// Since Hibernate Version 4.x, ServiceRegistry Is Being Used
-		ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
-
-		// Creating Hibernate SessionFactory Instance
-		sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
-		return sessionFactoryObj;
-	}
 
 	public static void main(String[] args) {
 		try {
-			sessionObj = buildSessionFactory().openSession();
+			sessionObj = HibernateUtils.buildSessionFactory().openSession();
 			sessionObj.beginTransaction();
 			userCredentialsObj = new UserCredentials();
-			userCredentialsObj.setUser("burningdzir");
-			userCredentialsObj.setEmail("mohitdtumc@gmail.com");
+			userCredentialsObj.setUser("burningdzire");
+			userCredentialsObj.setEmail("mohitdtumce@gmail.com");
 			userCredentialsObj.setPassword("pass@123");
 			sessionObj.save(userCredentialsObj);
 			sessionObj.getTransaction().commit();
