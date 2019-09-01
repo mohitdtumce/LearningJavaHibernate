@@ -9,9 +9,8 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<modules>
-		<module>modules/User</module>
-		<module>modules/CommonUtils</module>
-		<module>modules/Constants</module>
+		<module>modules/user</module>
+		<module>modules/commons</module>
 	</modules>
 
 
