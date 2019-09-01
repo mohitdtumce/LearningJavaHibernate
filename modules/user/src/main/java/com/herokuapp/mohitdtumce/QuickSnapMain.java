@@ -9,6 +9,5 @@ public class QuickSnapMain {
 		CommonDatabaseUtils.addUserCredentials("mohitdtu", "mohitdtu@gmail.com", "Pass@123");
 		UserCredentials userCredentials = CommonDatabaseUtils.fetchUserCredentials("mohitdtumce");
 		System.out.println(userCredentials.getUser() + userCredentials.getEmail() + userCredentials.getPassword());
-		return;
 	}
 }
