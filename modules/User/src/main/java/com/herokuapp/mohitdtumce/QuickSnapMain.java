@@ -4,7 +4,7 @@ import com.herokuapp.mohitdtumce.models.UserCredentials;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-public class App {
+public class QuickSnapMain {
 
 	static UserCredentials userCredentialsObj;
 	static Session sessionObj;
@@ -23,7 +23,7 @@ public class App {
 			System.out.println("Unable to create session");
 			exception.printStackTrace();
 		} catch (Exception exception) {
-			System.out.println("Inside exception catcher parent");
+			System.out.println("Inside Parent Exception Catcher");
 			exception.printStackTrace();
 		}
 		System.out.println("Hello World!");
