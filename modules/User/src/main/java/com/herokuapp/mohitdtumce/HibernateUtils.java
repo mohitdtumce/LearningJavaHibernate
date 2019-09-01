@@ -1,13 +1,9 @@
 package com.herokuapp.mohitdtumce;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.internal.SessionFactoryRegistry;
 import org.hibernate.service.ServiceRegistry;
-
-import java.util.logging.Logger;
 
 public class HibernateUtils {
 	private static SessionFactory sessionFactoryObj = null;
