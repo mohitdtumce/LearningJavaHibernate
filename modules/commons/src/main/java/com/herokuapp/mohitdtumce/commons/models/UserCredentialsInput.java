@@ -24,20 +24,20 @@ public class UserCredentialsInput {
 		return userName;
 	}
 
-	public UserState getUserState() {
-		return userState;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
+	public UserState getUserState() {
+		return userState;
+	}
+
 	public void setUserState(UserState userState) {
 		this.userState = userState;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public void setPassword(String password) {
