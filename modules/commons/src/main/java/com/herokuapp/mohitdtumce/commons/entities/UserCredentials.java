@@ -1,4 +1,4 @@
-package com.herokuapp.mohitdtumce.commons.models;
+package com.herokuapp.mohitdtumce.commons.entities;
 
 import com.herokuapp.mohitdtumce.commons.constants.Constants;
 

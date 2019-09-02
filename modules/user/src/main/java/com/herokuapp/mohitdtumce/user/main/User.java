@@ -1,24 +1,20 @@
 package com.herokuapp.mohitdtumce.user.main;
 
 
-import com.herokuapp.mohitdtumce.commons.utils.CommonUtils;
-import com.herokuapp.mohitdtumce.user.constants.Constants;
+import com.herokuapp.mohitdtumce.user.constants.UserType;
 
 public class User {
 	private UserType userType;
 	private String userName;
 
 	public User() {
-		this.userType = UserType.GUEST;
+		this.userType = UserType.GUEST_USER;
+		this.userName = "Anonymous";
 	}
 
-	enum UserType {
-		GUEST, LOGGED_IN
-	}
-
-	public void validateUser() {
-
-
+	public User(String userName) {
+		this.userType = UserType.LOGGED_IN;
+		this.userName = userName;
 	}
 
 }

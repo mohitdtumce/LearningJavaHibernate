@@ -1,6 +1,6 @@
 package com.herokuapp.mohitdtumce.commons.utils;
 
-import com.herokuapp.mohitdtumce.commons.models.UserCredentials;
+import com.herokuapp.mohitdtumce.commons.entities.UserCredentials;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -18,7 +18,7 @@ public class CommonDatabaseUtils {
 
 	public static SessionFactory buildSessionFactory() {
 		Configuration configObj = new Configuration();
-		configObj.addAnnotatedClass(com.herokuapp.mohitdtumce.commons.models.UserCredentials.class);
+		configObj.addAnnotatedClass(UserCredentials.class);
 		configObj.configure("hibernate.cfg.xml");
 
 		ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();

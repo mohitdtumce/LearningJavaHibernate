@@ -2,7 +2,7 @@ package com.herokuapp.mohitdtumce.commons.utils;
 
 import com.herokuapp.mohitdtumce.commons.constants.Constants;
 import com.herokuapp.mohitdtumce.commons.constants.UserState;
-import com.herokuapp.mohitdtumce.commons.models.UserCredentials;
+import com.herokuapp.mohitdtumce.commons.entities.UserCredentials;
 import com.herokuapp.mohitdtumce.commons.models.UserCredentialsInput;
 
 import java.util.Scanner;

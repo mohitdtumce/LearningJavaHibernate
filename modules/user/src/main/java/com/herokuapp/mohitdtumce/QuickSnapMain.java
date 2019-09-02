@@ -1,6 +1,6 @@
 package com.herokuapp.mohitdtumce;
 
-import com.herokuapp.mohitdtumce.commons.models.UserCredentials;
+import com.herokuapp.mohitdtumce.commons.entities.UserCredentials;
 import com.herokuapp.mohitdtumce.commons.utils.CommonDatabaseUtils;
 
 public class QuickSnapMain {
