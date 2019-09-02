@@ -12,10 +12,10 @@ import javax.persistence.Table;
 public class UserCredentials {
 
 	@Id
-	@Column(name = "user_name", nullable = false)
+	@Column(name = Constants.USER_CREDENTIALS_ATTR_USER_NAME, nullable = false)
 	private String userName;
 
-	@Column(name = "passwd", nullable = false)
+	@Column(name = Constants.USER_CREDENTIALS_ATTR_PASSWORD, nullable = false)
 	private String password;
 
 	public String getUserName() {
