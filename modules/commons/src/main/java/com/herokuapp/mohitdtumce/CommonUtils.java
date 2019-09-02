@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommonUtils {
+	public static SessionFactory sessionFactoryObj = null;
 
 	public static ArrayList<String> getClassNamesFromPackage(String packageName) throws IOException, URISyntaxException, ClassNotFoundException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -46,5 +47,25 @@ public class CommonUtils {
 			}
 		}
 		return classes;
+	}
+
+	public static SessionFactory buildSessionFactory(String packageName, String configFileName) throws IOException, URISyntaxException, ClassNotFoundException {
+		System.out.println("Defining Configurations");
+		Configuration configObj = new Configuration();
+		System.out.println("Adding Annotated Classes from package: " + packageName);
+		for (Class cls : CommonUtils.getEntityClassesFromPackage(packageName)) {
+			configObj.addAnnotatedClass(cls);
+		}
+		configObj.configure(configFileName);
+
+		ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
+
+		sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
+		System.out.println("Successfully Created SessionFactory Object");
+		return sessionFactoryObj;
+	}
+
+	public static void shutDownConnection() {
+		sessionFactoryObj.close();
 	}
 }
