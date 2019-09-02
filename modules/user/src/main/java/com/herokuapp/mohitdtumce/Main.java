@@ -1,5 +1,6 @@
 package com.herokuapp.mohitdtumce;
 
+import com.herokuapp.mohitdtumce.commons.utils.CommonUtils;
 import com.herokuapp.mohitdtumce.user.main.User;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Main {
 		switch (choice) {
 			case 1:
 				System.out.println("Login");
-				User user = new User();
+				CommonUtils.validateUser();
 				break;
 			case 2:
 				System.out.println("Sign-up");
