@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommonUtils {
+public class CommonHibernateUtils {
 	public static SessionFactory sessionFactoryObj = null;
 
 	public static ArrayList<String> getClassNamesFromPackage(String packageName) throws IOException, URISyntaxException, ClassNotFoundException {
@@ -53,7 +53,7 @@ public class CommonUtils {
 		System.out.println("Defining Configurations");
 		Configuration configObj = new Configuration();
 		System.out.println("Adding Annotated Classes from package: " + packageName);
-		for (Class cls : CommonUtils.getEntityClassesFromPackage(packageName)) {
+		for (Class cls : CommonHibernateUtils.getEntityClassesFromPackage(packageName)) {
 			configObj.addAnnotatedClass(cls);
 		}
 		configObj.configure(configFileName);

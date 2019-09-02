@@ -1,6 +1,6 @@
 package com.herokuapp.mohitdtumce.commons.utils;
 
-import com.herokuapp.mohitdtumce.CommonUtils;
+import com.herokuapp.mohitdtumce.CommonHibernateUtils;
 import com.herokuapp.mohitdtumce.commons.entities.UserCredentials;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -14,12 +14,12 @@ public class CommonDatabaseUtils {
 
 	public static UserCredentials fetchUserCredentials(String username) {
 		try {
-			sessionObj = CommonUtils.buildSessionFactory("com.herokuapp.mohitdtumce.commons.entities", "common_utils.cfg.xml").openSession();
+			sessionObj = CommonHibernateUtils.buildSessionFactory("com.herokuapp.mohitdtumce.commons.entities", "common_utils.cfg.xml").openSession();
 			sessionObj.beginTransaction();
 			String hql = "FROM UserCredentials UC WHERE UC.userName = \'" + username + "\'";
 			Query query = sessionObj.createQuery(hql);
 			List<UserCredentials> userCredentials = query.list();
-			CommonUtils.shutDownConnection();
+			CommonHibernateUtils.shutDownConnection();
 			if (userCredentials == null || userCredentials.size() == 0) {
 				return null;
 			} else {
@@ -37,7 +37,7 @@ public class CommonDatabaseUtils {
 
 	public static void addUserCredentials(String username, String password) {
 		try {
-			sessionObj = CommonUtils.buildSessionFactory("com.herokuapp.mohitdtumce.commons.entities", "common_utils.cfg.xml").openSession();
+			sessionObj = CommonHibernateUtils.buildSessionFactory("com.herokuapp.mohitdtumce.commons.entities", "common_utils.cfg.xml").openSession();
 			sessionObj.beginTransaction();
 			System.out.println("Inside Transaction");
 			userCredentialsObj = new UserCredentials();
@@ -46,7 +46,7 @@ public class CommonDatabaseUtils {
 			sessionObj.save(userCredentialsObj);
 			sessionObj.getTransaction().commit();
 			System.out.println("Transaction Committed");
-			CommonUtils.shutDownConnection();
+			CommonHibernateUtils.shutDownConnection();
 		} catch (HibernateException exception) {
 			System.out.println("Unable to create session");
 			exception.printStackTrace();

@@ -6,10 +6,15 @@ import com.herokuapp.mohitdtumce.commons.utils.CommonDatabaseUtils;
 public class QuickSnapMain {
 
 	public static void main(String[] args) throws Exception {
-		CommonDatabaseUtils.addUserCredentials("mohitsharma.r", "Pass@123");
-		UserCredentials userCredentials = CommonDatabaseUtils.fetchUserCredentials("mohit.sharma");
-		if (userCredentials != null)
+		String userName = "mohitdtumce";
+		String userPassword = "Pass@345";
+		String hashedPassword = CommonHashingUtils.hashUserPassword(userPassword);
+		CommonDatabaseUtils.addUserCredentials(userName, hashedPassword);
+		UserCredentials userCredentials = CommonDatabaseUtils.fetchUserCredentials("mohitsharma");
+		if (userCredentials != null) {
+			System.out.println(CommonHashingUtils.validatePasswordMatch("Pass@123", userCredentials.getPassword()));
 			System.out.println(userCredentials.getUserName() + userCredentials.getPassword());
+		}
 
 	}
 }
