@@ -12,29 +12,18 @@ import javax.persistence.Table;
 public class UserCredentials {
 
 	@Id
-	@Column(name = "user", nullable = false)
-	private String user;
-
-	@Column(name = "email", nullable = false)
-	private String email;
+	@Column(name = "user_name", nullable = false)
+	private String userName;
 
 	@Column(name = "passwd", nullable = false)
 	private String password;
 
-	public String getUser() {
-		return user;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {

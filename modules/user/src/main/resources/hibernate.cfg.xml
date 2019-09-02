@@ -14,8 +14,9 @@
 
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext
 		</property>
-		<!-- DB schema will be updated if needed -->
-		<!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
-		<!--		<mapping class="com.herokuapp.mohitdtumce.models.UserCredentials"/>-->
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="com.herokuapp.mohitdtumce.user.entities.UserInfo"/>
+		<mapping class="com.herokuapp.mohitdtumce.user.entities.UserProfile"/>
 	</session-factory>
 </hibernate-configuration>

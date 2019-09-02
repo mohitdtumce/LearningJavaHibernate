@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.herokuapp.mohitdtumce.user.entities.UserProfile" table="user_profile">
+		<id name="userId" type="java.lang.Long">
+			<column name="user_id"/>
+			<generator class="identity"/>
+		</id>
+
+		<property name="designation" type="java.lang.String">
+			<column name="designation" length="50" not-null="false" unique="false"/>
+		</property>
+
+		<property name="organization" type="java.lang.String">
+			<column name="organization" length="50" not-null="false" unique="false"/>
+		</property>
+
+		<property name="about" type="java.lang.String">
+			<column name="about" length="500" not-null="false" unique="false"/>
+		</property>
+
+		<property name="createdAt" type="org.joda.time.DateTime">
+			<column name="created_at"/>
+		</property>
+
+		<property name="updatedAt" type="org.joda.time.DateTime">
+			<column name="updated_at"/>
+		</property>
+
+		<one-to-one name="userId" class="com.herokuapp.mohitdtumce.user.entities.UserInfo" cascade="save-update">
+		</one-to-one>
+
+	</class>
+</hibernate-mapping>
